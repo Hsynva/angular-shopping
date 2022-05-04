@@ -1,0 +1,113 @@
+<div class="contact">
+  <div class="container-fluid">
+    <div class="mb-2 fs-6">
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-md-4 mb-5">
+
+        <div class="contact-info">
+
+          <h2>Bizim Mağaza</h2>
+
+          <div class="contact-info">
+            <ul>
+              <li class="">
+                <a href="" class="col-md-6 mb-3">
+                  <i class="fas fa-mobile-alt"></i> <span>*6542</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="" class="col-md-6">
+                  <i class="fa fa-map-marker"></i><span>Mağazalarımız xəritədə</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="" class="col-md-6"></a>
+                <i class="fa fa-phone" style="margin-right: 15px; padding-left: 0px"></i>
+                <a type="button">012-351-22-11</a>
+              </li>
+
+            </ul>
+
+            <ul class="social">
+              <li>
+                <a href=""><i class="fab fa-facebook-f"></i></a>
+              </li>
+              <li>
+                <a href=""><i class="fab fa-instagram"></i></a>
+              </li>
+              <li>
+                <a href=""><i class="fab fa-youtube"></i></a>
+              </li>
+            </ul>
+
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-lg-6 offset-lg-2 col-md-8 mt-4">
+        <div class="contact-form">
+          <form [formGroup]="form" (submit)="saveForm()">
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <input type="text" class="form-control" placeholder="Ad" formControlName="name" />
+
+                <p class="pt-2 text-danger"
+                  *ngIf="form.controls['name'].errors?.['required'] && form.controls['name'].touched">
+                  İstifadəçi adı qeyd olunmalıdır
+                </p>
+
+                <p class="py-2 text-danger" *ngIf="form.controls['name'].errors?.['minlength']?.requiredLength && 
+                form.controls['name'].touched">
+                 Minimum {{form.controls['name'].errors?.['minlength']?.requiredLength }} sayda xarekter olmalıdır
+                </p>
+              </div>
+              <div class="col-md-6">
+                <input type="email" class="form-control" placeholder="E-Ünvan" formControlName="email"/>
+
+                  <p class="pt-2 text-danger"
+                  *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched">
+                  E-Ünvan qeyd olunmalıdır
+              </p>
+      
+              <div class="py-2 text-danger" *ngIf="form.controls['email'].errors?.['pattern']?.requiredPattern && 
+                      form.controls['email'].touched">
+                  E-Ünvan doğru yazın
+              </div>
+              </div>
+            </div>
+            <div class="form-group my-2">
+              <input type="text" class="form-control" placeholder="Mövzu" />
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="Mesaj" formControlName="message"></textarea>
+
+              <p class="pt-2 text-danger"
+              *ngIf="form.controls['message'].errors?.['required'] && form.controls['message'].touched">
+               Mesajınızı qeyd edin
+            </p>
+
+            <p class="py-2 text-danger" *ngIf="form.controls['message'].errors?.['minlength']?.requiredLength && 
+            form.controls['message'].touched">
+              Minimum{{form.controls['message'].errors?.['minlength']?.requiredLength }} sayda xarekter olmalıdır
+            </p>
+            </div>
+            <div><button class="btn btn-dark my-2" type="submit"> Göndər</button></div>
+          </form>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="contact-map my-4">
+          <iframe src="https://www.google.com/maps/d/embed?mid=1Wav8yp4qpTQXzx3Oyl5u3sAeYLX-Y7XX"></iframe>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+</div>

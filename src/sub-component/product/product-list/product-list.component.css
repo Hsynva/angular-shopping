@@ -1,0 +1,44 @@
+img {
+  width: 60%;
+  height: 200px;
+}
+.btn{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.img {
+  width: 150px;
+  height: 150px;
+}
+
+.next-page{
+  margin-top: 20px;
+  background: black;
+  width: 100% ;
+  height: 40px;
+  padding: 10px 0;
+  text-align: center;
+  border-radius: 3px;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  margin: auto;
+}
+@media only screen and (max-width: 572px) {
+  .wd-70{
+    width: 100%;
+  }
+  .next-page{
+    width: 100% ;
+    height: 8vh;
+  }
+  .btn3{
+    padding: 5px;
+    margin: 1.5px;
+  }
+  
+}
+
+

@@ -1,0 +1,85 @@
+<form [formGroup]="form" (submit)="saveForm()" class="m-4">
+    <div class="form-group">
+        <label class="py-2"> Ad </label>
+        <input class="form-control" placeholder="Ad" formControlName="name" />
+        <p class="pt-2 text-danger"
+            *ngIf="form.controls['name'].errors?.['required'] && form.controls['name'].touched">
+            İstifadəçinin adı qeyd olunmalıdır
+        </p>
+        
+        <p class="py-2 text-danger" *ngIf="form.controls['name'].errors?.['minlength']?.requiredLength && 
+                form.controls['name'].touched">
+            Minimum {{form.controls['name'].errors?.['minlength']?.requiredLength }} sayda xarakter olmalıdır
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label class="py-2"> Ünvan </label>
+        <input class="form-control" placeholder="Ünvan" formControlName="address" />
+        <p class="pt-2 text-danger"
+            *ngIf="form.controls['address'].errors?.['required'] && form.controls['address'].touched">
+            Ünvan qeyd olunmalıdır
+        </p>
+        <br />
+        <p class="py-2 text-danger" *ngIf="form.controls['address'].errors?.['minlength']?.requiredLength && 
+                form.controls['address'].touched">
+           Minimum {{form.controls['address'].errors?.['minlength']?.requiredLength }} sayda xarakter olmalıdır
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label class="py-2"> Şəhər </label>
+        <input class="form-control" placeholder="Şəhər" formControlName="city" />
+
+        <p class="pt-2 text-danger"
+            *ngIf="form.controls['city'].errors?.['required'] && form.controls['city'].touched">
+            Şəhər qeyd olunmalıdır
+        </p>
+        <p class="py-2 text-danger" *ngIf="form.controls['city'].errors?.['minlength']?.requiredLength && 
+                form.controls['city'].touched">
+            Minimum{{form.controls['city'].errors?.['minlength']?.requiredLength }} sayda xarakter olmalıdır
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label class="py-2"> Telefon </label>
+        <input class="form-control" placeholder="Telefon*" formControlName="phone" />
+        <p class="pt-2 text-danger"
+            *ngIf="form.controls['phone'].errors?.['required'] && form.controls['phone'].touched">
+            Telefon nömrəsi qeyd olunmalıdır
+        </p>
+        <br />
+        <p class="py-2 text-danger" *ngIf="form.controls['phone'].errors?.['minlength']?.requiredLength && 
+                form.controls['phone'].touched">
+            Minimum{{form.controls['phone'].errors?.['minlength']?.requiredLength }} sayda xarakter olmalıdır
+        </p>
+
+        <div class="py-2 text-danger" *ngIf="form.controls['phone'].errors?.['pattern']?.requiredPattern && 
+                form.controls['phone'].touched">
+            Rəqəm daxil edin
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="py-2"> E-Ünvan </label>
+        <input class="form-control" placeholder="E-Ünvan*" class="form-control" formControlName="email" />
+        <p class="pt-2 text-danger"
+            *ngIf="form.controls['email'].errors?.['required'] && form.controls['email'].touched">
+            E-Ünvan qeyd edilməlidir
+        </p>
+
+        <div class="py-2 text-danger" *ngIf="form.controls['email'].errors?.['pattern']?.requiredPattern && 
+                form.controls['email'].touched">
+            E-Ünvan doğru yazın
+        </div>
+    </div>
+    <div class="text-center mt-3 d-flex ">
+        <button class="btn btn-dark " type="submit" [disabled]="form.invalid">
+            Sifarişi bitir
+        </button>
+        <span class="p-1"></span>
+        <button routerLink="/" class="btn btn-dark ml-2" type="submit">
+            Alış-Verişə Davam Et
+        </button>
+    </div>
+</form>

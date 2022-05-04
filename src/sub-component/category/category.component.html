@@ -1,0 +1,23 @@
+<div (click)="onClickToggle()" class="click-div">
+ <div>
+   <div class="left fs-5">Kateqoriya</div>
+   <div class="right ">
+    <i class="fa fa-angle-down text-dark fs-5"></i>
+   </div>
+  </div>
+</div>
+<div *ngIf="toggle" class="mt-2">
+  <div class="list-group">
+    
+    <button
+     class="list-group-item list-group-item-action " 
+     *ngFor="let item of getAllCategories()"
+     (click)="onClickCategory(item)"
+    >
+      {{item}}
+    </button>
+   
+  </div>
+</div>
+
+

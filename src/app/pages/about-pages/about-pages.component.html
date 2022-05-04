@@ -1,0 +1,14 @@
+<iframe src="https://www.google.com/maps/d/embed?mid=1Wav8yp4qpTQXzx3Oyl5u3sAeYLX-Y7XX"></iframe>
+
+
+<h1 class="text">Filiallar</h1>
+<div class="row">
+    <div class="col-md-3 col-sm-12 py-4" *ngFor="let d of data">
+
+        <h1>{{d?.city}} şəhəri</h1>
+        <h3>{{d?.link}}</h3>
+        <p>ünvan:{{d?.place}}</p>
+        <p>iş saatı:{{d?.date}}</p>
+
+    </div>
+</div>

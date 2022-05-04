@@ -1,0 +1,50 @@
+<div class="alert alert-warning" *ngIf="data.length == 0">
+    <h1 class="py-2">Səbətinizdə məhsul yoxdur</h1>
+    <button class="btn btn-dark" [routerLink]="['/']" routerLinkActive="router-link-active"> Əsas səhifəyə get
+    </button>
+</div>
+
+<div class="row" *ngIf="data.length > 0">
+    <div class="col-md-8 col-sm-12">
+        <table class="table">
+            <body>
+                <tr class="row" *ngFor="let d of data">
+                    <th class="col-md-2 col-sm-4">
+                        <img class='img' [src]="d?.product?.image" />
+                    </th>
+                    <td class="col-md-2 col-sm-4">
+                        <h1>Məhsul</h1>
+                        <span>{{d?.product?.title}}</span>
+                    </td>
+                    <td class="col-md-2 col-sm-4">
+                        <h1>Qiymət</h1>
+                        <span>{{d?.product?.price}}</span>
+                    </td>
+                    <td class="col-md-2 col-sm-4">
+                        <h1>Miqdar</h1>
+                        <span>
+                            <input style="width: 55px; text-align: center;" [name]="d?.product?.title || '' "
+                                [(ngModel)]="d.quantity" (change)="totalSumPrice(d)" />
+                        </span>
+                    </td>
+                    <td class="col-md-2 col-sm-4"> 
+                        <h1>Toplam qiymət</h1>
+                        <span>{{d?.totalPrice}}</span>
+                    </td>
+                    <td class="col-md-2 col-sm-4 text-center">
+                        <h1>Sil</h1>
+                        <img src="../../assets/images/delete.svg" class="svg" (click)="deleteProduct(d)" />
+                    </td>
+                </tr>
+            </body>
+        </table>
+    </div>
+
+    <div class="col-md-4 col-sm-12">
+        <h1>Ümumi qiymət {{totalPrice}} AZN</h1>
+        <button class="btn btn-dark" [routerLink]="['/']" routerLinkActive="router-link-active"> Alış-Verişə Davam Et
+        </button>
+        <span class="p-1"></span>
+        <button class="btn btn-dark"  routerLink="/pages/cheked"> Alış-Verişi Bitir</button>
+    </div>
+</div>
